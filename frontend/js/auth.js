@@ -199,11 +199,7 @@
                         email: user.email,
                     })
                 );
-                showMessage(
-                    message,
-                    `Signed in locally as ${user.name}. This demo account is saved in this browser only.`,
-                    "success"
-                );
+                window.location.assign("/?page=dashboard");
             } catch (error) {
                 console.error("Unable to sign in to the local demo account.", error);
                 showMessage(

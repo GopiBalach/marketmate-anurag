@@ -210,6 +210,40 @@
         </div>
     </template>
 
+    <template id="dashboardPage">
+        <div class="mb-10">
+            <p class="mb-2 font-semibold text-green-600">MarketMate Dashboard</p>
+            <h1 class="mb-3 text-4xl font-bold md:text-5xl">
+                Welcome, <span id="userName" class="text-green-600">User</span> 👋
+            </h1>
+            <p class="text-lg text-gray-500">What would you like to do today?</p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <section class="rounded-2xl border border-gray-100 bg-white p-7 shadow-sm">
+                <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-green-100 text-3xl text-green-600">🛒</div>
+                <h2 class="mb-2 text-xl font-bold">Products</h2>
+                <p class="leading-relaxed text-gray-500">Browse MarketMate grocery products.</p>
+            </section>
+            <section class="rounded-2xl border border-gray-100 bg-white p-7 shadow-sm">
+                <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-blue-100 text-3xl text-blue-600">🛍️</div>
+                <h2 class="mb-2 text-xl font-bold">Cart</h2>
+                <p class="leading-relaxed text-gray-500">Your shopping session is ready.</p>
+            </section>
+            <section class="rounded-2xl border border-gray-100 bg-white p-7 shadow-sm">
+                <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-purple-100 text-3xl text-purple-600">📦</div>
+                <h2 class="mb-2 text-xl font-bold">Orders</h2>
+                <p class="leading-relaxed text-gray-500">Your orders will appear here.</p>
+            </section>
+        </div>
+
+        <div class="mt-10 rounded-2xl border border-green-100 bg-green-50 p-6">
+            <h2 class="text-lg font-bold text-green-800">Welcome to MarketMate</h2>
+            <p class="mt-1 text-sm text-green-700">You are signed in and can use the demo dashboard.</p>
+        </div>
+    </template>
+
+    <script src="js/script.js"></script>
     <script src="js/auth.js"></script>
     <script src="js/navigation.js"></script>
 
