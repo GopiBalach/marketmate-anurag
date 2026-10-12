@@ -7,6 +7,7 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,9 +18,19 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     private final UserRepository userRepository;
+    private final String demoEmail;
+    private final String demoPassword;
+    private final String demoName;
 
-    public UserController(UserRepository userRepository) {
+    public UserController(
+            UserRepository userRepository,
+            @Value("${marketmate.demo.email:}") String demoEmail,
+            @Value("${marketmate.demo.password:}") String demoPassword,
+            @Value("${marketmate.demo.name:Demo User}") String demoName) {
         this.userRepository = userRepository;
+        this.demoEmail = demoEmail;
+        this.demoPassword = demoPassword;
+        this.demoName = demoName;
     }
 
     // =========================
@@ -51,6 +62,14 @@ public class UserController {
     @PostMapping("/login")
     public ResponseEntity<?> loginUser(
             @Valid @RequestBody LoginRequest loginRequest) {
+
+        if (!demoEmail.isBlank()
+                && !demoPassword.isBlank()
+                && demoEmail.equalsIgnoreCase(loginRequest.email())
+                && demoPassword.equals(loginRequest.password())) {
+            return ResponseEntity.ok(
+                    new UserResponse(-1L, demoName, demoEmail));
+        }
 
         User user = userRepository
                 .findByEmail(loginRequest.email())

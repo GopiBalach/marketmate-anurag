@@ -1,9 +1,7 @@
 # MarketMate
 
-MarketMate is split into two independently served parts:
-
-- `frontend/` contains the static HTML and JavaScript UI.
-- `backend/` contains the Spring Boot REST API and MySQL persistence layer.
+MarketMate has a static HTML/JavaScript frontend in `frontend/` and a Spring
+Boot REST API in `backend/`. The backend packages and serves the frontend.
 
 ## Run the backend
 
@@ -21,10 +19,13 @@ Omit the first command if your MySQL account has no password. The username
 defaults to `root`; override it with the `DB_USERNAME` environment variable if
 needed.
 
-The API listens on `http://localhost:8081`.
+Open `http://localhost:8081/index.html` for the frontend. The API is available
+at `http://localhost:8081/api/users`.
 
-## Run the frontend
+## Demo logins
 
-Serve the `frontend/` directory with a static file server (for example, the
-VS Code Live Server extension) and open `index.html`. The UI sends requests to
-`http://localhost:8081/api/users`.
+To enable one optional demo account that bypasses the database lookup, set
+`MARKETMATE_DEMO_EMAIL` and `MARKETMATE_DEMO_PASSWORD` in the same terminal
+before starting the backend. Optionally set `MARKETMATE_DEMO_NAME`; it defaults
+to `Demo User`. Without email and password values, all logins use the normal
+database-backed flow.
