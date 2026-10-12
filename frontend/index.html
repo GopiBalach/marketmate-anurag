@@ -23,7 +23,7 @@
                     flex items-center justify-between">
 
             <!-- Logo -->
-            <a href="/index.html"
+            <a href="/"
                class="text-2xl font-bold tracking-wide">
                 MarketMate
             </a>
@@ -31,14 +31,14 @@
             <!-- Navigation -->
             <nav class="flex items-center gap-6">
 
-                <a href="/login/"
+                <a href="/?page=login"
                    class="text-sm font-medium
                           hover:text-green-100
                           transition">
                     Login
                 </a>
 
-                <a href="/register/"
+                <a href="/?page=register"
                    class="bg-white text-green-600
                           px-5 py-2 rounded-lg
                           text-sm font-semibold
@@ -118,7 +118,7 @@
                             justify-center
                             gap-4">
 
-                    <a href="/register/"
+                    <a href="/?page=register"
                        class="bg-green-600
                               text-white
                               px-7 py-3
@@ -133,7 +133,7 @@
                     </a>
 
 
-                    <a href="/login/"
+                    <a href="/?page=login"
                        class="border border-green-600
                               text-green-600
                               px-7 py-3
@@ -155,6 +155,61 @@
 
     </main>
 
+    <template id="loginPage">
+        <div class="w-full max-w-md rounded-2xl border border-gray-100 bg-white p-8 shadow-xl">
+            <div class="mb-8 text-center">
+                <div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-green-100 text-2xl text-green-600">🔐</div>
+                <h1 class="text-3xl font-bold text-gray-900">Welcome Back</h1>
+                <p class="mt-2 text-gray-500">Login to your MarketMate account</p>
+            </div>
+            <form id="loginForm" class="space-y-5">
+                <div>
+                    <label for="loginEmail" class="mb-2 block text-sm font-semibold text-gray-700">Email</label>
+                    <input type="email" id="loginEmail" placeholder="Enter your email" required class="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none transition focus:border-green-500 focus:ring-2 focus:ring-green-500">
+                </div>
+                <div>
+                    <label for="loginPassword" class="mb-2 block text-sm font-semibold text-gray-700">Password</label>
+                    <input type="password" id="loginPassword" placeholder="Enter your password" required class="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none transition focus:border-green-500 focus:ring-2 focus:ring-green-500">
+                </div>
+                <button type="submit" class="w-full rounded-lg bg-green-600 py-3 font-semibold text-white shadow-md transition hover:bg-green-700">Login</button>
+                <p id="loginMessage" class="min-h-5 text-center text-sm text-gray-600" aria-live="polite"></p>
+            </form>
+            <p class="mt-6 text-center text-sm text-gray-600">Don't have an account? <a href="/?page=register" class="font-semibold text-green-600 hover:text-green-700">Create Account</a></p>
+        </div>
+    </template>
+
+    <template id="registerPage">
+        <div class="w-full max-w-md rounded-2xl border border-gray-100 bg-white p-8 shadow-xl">
+            <div class="mb-8 text-center">
+                <div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-green-100 text-2xl text-green-600">🛒</div>
+                <h1 class="text-3xl font-bold text-gray-900">Create Account</h1>
+                <p class="mt-2 text-gray-500">Join MarketMate today</p>
+            </div>
+            <form id="registerForm" class="space-y-5">
+                <div>
+                    <label for="name" class="mb-2 block text-sm font-semibold text-gray-700">Name</label>
+                    <input type="text" id="name" placeholder="Enter your name" required class="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none transition focus:border-green-500 focus:ring-2 focus:ring-green-500">
+                </div>
+                <div>
+                    <label for="email" class="mb-2 block text-sm font-semibold text-gray-700">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email" required class="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none transition focus:border-green-500 focus:ring-2 focus:ring-green-500">
+                </div>
+                <div>
+                    <label for="password" class="mb-2 block text-sm font-semibold text-gray-700">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required class="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none transition focus:border-green-500 focus:ring-2 focus:ring-green-500">
+                </div>
+                <div>
+                    <label for="confirmPassword" class="mb-2 block text-sm font-semibold text-gray-700">Confirm Password</label>
+                    <input type="password" id="confirmPassword" placeholder="Confirm your password" required class="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none transition focus:border-green-500 focus:ring-2 focus:ring-green-500">
+                </div>
+                <button type="submit" class="w-full rounded-lg bg-green-600 py-3 font-semibold text-white shadow-md transition hover:bg-green-700">Create Account</button>
+                <p id="registerMessage" class="min-h-5 text-center text-sm text-gray-600" aria-live="polite"></p>
+            </form>
+            <p class="mt-6 text-center text-sm text-gray-600">Already have an account? <a href="/?page=login" class="font-semibold text-green-600 hover:text-green-700">Login</a></p>
+        </div>
+    </template>
+
+    <script src="js/navigation.js"></script>
 
     <!-- =========================
          FOOTER
