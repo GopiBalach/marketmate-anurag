@@ -25,28 +25,5 @@ if (requestedPage === "login" || requestedPage === "register") {
     otherPageLink.textContent = otherPageLabel;
     navigation.append(homeLink, otherPageLink);
 
-    const form = document.getElementById(
-        requestedPage === "login" ? "loginForm" : "registerForm"
-    );
-    const message = document.getElementById(
-        requestedPage === "login" ? "loginMessage" : "registerMessage"
-    );
-
-    form.addEventListener("submit", (event) => {
-        event.preventDefault();
-
-        if (
-            requestedPage === "register" &&
-            document.getElementById("password").value !==
-                document.getElementById("confirmPassword").value
-        ) {
-            message.textContent = "Passwords do not match.";
-            message.className = "min-h-5 text-center text-sm text-red-600";
-            return;
-        }
-
-        message.textContent =
-            "Form submission is unavailable in this frontend-only deployment.";
-        message.className = "min-h-5 text-center text-sm text-gray-600";
-    });
+    window.MarketMateAuth.initializeForms();
 }

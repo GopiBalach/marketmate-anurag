@@ -7,7 +7,17 @@ or it can be deployed separately as a Render Static Site.
 For Render Static Site deployment, use `frontend/` as the publish directory.
 Login and registration navigation uses the root-page URLs `/?page=login` and
 `/?page=register`, so it works even when the host rewrites unknown paths to the
-homepage.
+homepage. The static frontend also provides local demo authentication: accounts
+created through Register are stored in the current browser and can be used to
+log in there. Passwords are salted and hashed in browser storage. The local
+accounts are only for demos and testing; do not use real passwords or treat
+this as production authentication.
+
+The frontend seeds this demo login in each browser:
+
+| Email | Password |
+| --- | --- |
+| `navya@gmail.com` | `navya123` |
 
 ## Run the backend
 
