@@ -1,7 +1,13 @@
 # MarketMate
 
 MarketMate has a static HTML/JavaScript frontend in `frontend/` and a Spring
-Boot REST API in `backend/`. The backend packages and serves the frontend.
+Boot REST API in `backend/`. The backend can package and serve the frontend,
+or it can be deployed separately as a Render Static Site.
+
+For Render Static Site deployment, use `frontend/` as the publish directory
+and keep its subdirectories in the published output. The login and registration
+pages are available at `/login/` and `/register/` for hosts that normalize
+`.html` URLs.
 
 ## Run the backend
 
